@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { register } from "../../data/auth";
 
 export default function Register () {
 
@@ -7,11 +7,12 @@ export default function Register () {
     const [password, setPassword] = useState("");
     const [cnfPassword, setCnfPassword] = useState("");
 
-    const navigate = useNavigate();
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/login')
+        const data = {
+            email, password
+        }
+        register(data);
     }
 
     return (

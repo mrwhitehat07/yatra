@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { login } from "../../data/auth";
 
 export default function Login () {
@@ -7,15 +7,12 @@ export default function Login () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const navigate = useNavigate();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {
             email, password
-        }
+        } 
         login(data);
-        // navigate('/');
     }
 
     return (
