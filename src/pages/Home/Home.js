@@ -6,20 +6,33 @@ export default function Home () {
     const [locations, setLocations] = useState([{
         id: '',
         slug: '',
-        name: 'yugyugkuy'
+        city: '',
+        country: '',
     }]);
 
     useEffect(() => {
-        getLocations();
-    });
+       
+    async function getLocs(){
+        const locs = await getLocations();
+        setLocations(locs);
+    }
+
+    getLocs();
+    console.log(locations);
+    },[]);
 
     return (
         <>
             <h1>Locations Popular</h1>
             <div>
+                
                 {
-                    locations.map((e) => (<div>{e.name}</div>))
+                    locations.map((e) => (<div className="card px-2 py-2 bg-primary flex flex-column" onClick={() => console.log(e.slug)}>
+                        <p>{e.city}</p>
+                        <p>{e.country}</p>
+                    </div>))
                 }
+                
             </div>
         </>
     )

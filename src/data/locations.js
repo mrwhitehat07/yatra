@@ -1,12 +1,10 @@
 import axiosInstance from "../configs/axios.config"
 
 export const getLocations = async () => {
-    await axiosInstance.get('/locations')
-    .then(res => {
-        console.log(res.data.data);
-        return res.data.data;
-    })
-    .catch(err => {
-       return err; 
-    });
+    const res = await axiosInstance.get('/locations');
+    if(res.status === 200){
+        let result = res.data.data;
+        return result;
+    }
+    
 }

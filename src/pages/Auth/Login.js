@@ -44,7 +44,8 @@ export default function Login () {
                 <label className="form-check-label" for="remember">Remember me</label>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button><br />
-            <label className="my-3 form-check-label" for="register">Don't have an accounnt? <Link to="/register">Register</Link></label>
+            <label className="my-3 form-check-label" for="register">Don't have an accounnt? <Link to="/register">Register</Link></label><br />
+            <label className="my-3 form-check-label" for="register"><Link to="/forgot">Forgot Password?</Link></label>
         </form>
     </>
     )
