@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-export default function Example() {
+export default function Navbar() {
   return (
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -64,7 +64,7 @@ export default function Example() {
             </li>
           </ul>
         </div>
-        <div class="dropdown">
+        {/* <div class="dropdown">
           <a
             class="dropdown-toggle d-flex align-items-center hidden-arrow"
             href="#"
@@ -95,7 +95,8 @@ export default function Example() {
               <a class="dropdown-item" href="#">Logout</a>
             </li>
           </ul>
-        </div>
+        </div> */}
+        <Link to="/login" className="btn btn-primary">Login</Link>
       </div>
     </div>
   </nav>

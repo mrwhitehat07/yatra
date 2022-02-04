@@ -17,7 +17,7 @@ export default function Login () {
 
     return (
     <>
-        <form onSubmit={handleSubmit}>
+        <form className="form-group" onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label for="email" className="form-label">Email address</label>
                 <input 

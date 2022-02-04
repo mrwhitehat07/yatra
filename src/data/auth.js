@@ -1,5 +1,7 @@
 import axiosInstance from "../configs/axios.config"
 
+const token = localStorage.getItem("token");
+
 export const login = async (user) => {
     await axiosInstance.post('/login', user)
     .then(res => {
@@ -29,6 +31,15 @@ export const register = async (user) => {
     .catch(err => {
         console.log("Something went wrong")
     });
+}
+
+export const profile = async () => {
+    const res = await axiosInstance.get('/profile', { headers: { Authorization: `Bearer ${token}` } });
+    if(res.status === 200){
+        let result = res.data;
+        return result;
+    }
+
 }
 
 export const forgot = async (email) => {

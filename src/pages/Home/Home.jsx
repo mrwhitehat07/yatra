@@ -9,6 +9,7 @@ export default function Home () {
         slug: '',
         city: '',
         country: '',
+        image: ''
     }]);
 
     useEffect(() => {   
@@ -22,13 +23,18 @@ export default function Home () {
     return (
         <div className="container">
             <h3>Popular Locations</h3>
-            <div>  
+            <div className="d-flex flex-row justify-content-between">  
                 {
                     locations.map((e) => (
-                        <Link className="card px-2 py-2 bg-primary flex flex-column" to={`/location/${e.slug}`}>
-                            <p className="text-white text-lg">{e.city}</p>
-                            <p className="text-white">{e.country}</p>
-                        </Link>
+                        <Link class="card" style={{ width: "16rem" }} to={`/location/${e.slug}`}>
+                            <div className="card-header">
+                                <img className="img-thumbnail" src={e.image} alt={e.slug} />
+                            </div>
+                            <div className="card-body">
+                                <p className="card-text">{e.city}</p>
+                                <p className="card-text">{e.country}</p>
+                            </div>
+                        </Link>  
                     ))
                 }   
             </div>
