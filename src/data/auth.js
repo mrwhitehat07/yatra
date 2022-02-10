@@ -1,41 +1,35 @@
-import axiosInstance from "../configs/axios.config"
-
-const token = localStorage.getItem("token");
+import axiosInstance from "../configs/axios.config";
+import Apis from "../utils/apis";
 
 export const login = async (user) => {
-    await axiosInstance.post('/login', user)
-    .then(res => {
-        if(res.status === 200){
-            console.log(res.data);
-            localStorage.setItem("token", res.data.token)
-        }
-        else if (res.status === 404){
-            console.log("No user");
-        }
-    })
-    .catch(err => {
-        console.log("Something went wrong")
-    });
+    let res = await axiosInstance.post(Apis.loginUrl, user);
+    if(res.status === 200){
+        console.log(res.data);
+        localStorage.setItem("token", res.data.token)
+    }
+    else if (res.status === 404){
+        console.log("No user");
+    }
+   
 }
 
 export const register = async (user) => {
-    await axiosInstance.post('/register', user)
-    .then( res => {
-        if(res.status === 200){
-            console.log(res.data.message);
-        }
-        else if (res.status === 404){
-            console.log("No user");
-        }
-    })
-    .catch(err => {
-        console.log("Something went wrong")
-    });
+    const res = await axiosInstance.post(Apis.registerUrl, user);
+    if(res.status === 200){
+        console.log(res.data.message);
+    }
+    else if (res.status === 404){
+        console.log("No user");
+    }
+   
 }
 
 export const profile = async () => {
-    const res = await axiosInstance.get('/profile', { headers: { Authorization: `Bearer ${token}` } });
+    const res = await axiosInstance.get(Apis.profileUrl);
     if(res.status === 200){
+        if (res.data.name === "JsonWebTokenError"){
+            return "Token expired";
+        }
         let result = res.data;
         return result;
     }
@@ -43,24 +37,14 @@ export const profile = async () => {
 }
 
 export const forgot = async (email) => {
-    await axiosInstance.post('/forgot-password', email)
-    .then(res => {
-        if(res.status === 200){
-            console.log(res.data.message);
-            return res.data.message;
-        }
-    })
-    .catch(err => {
-
-    });
+    const res = await axiosInstance.post(Apis.forgotUrl, email);
+    if(res.status === 200){
+        console.log(res.data.message);
+        return res.data.message;
+    }
 }
 
 export const resetPassword = async (password, token) => {
-    await axiosInstance.post(`/reset-password/${token}`, password)
-    .then(res => {
-        console.log(res.data.message);
-    })
-    .catch(err => {
-
-    })
+    const res = await axiosInstance.post(`${Apis.resetUrl}${token}`, password);
+    
 }

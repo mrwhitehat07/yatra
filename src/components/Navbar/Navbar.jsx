@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar({ user }) {
   return (
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -16,7 +16,7 @@ export default function Navbar() {
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <a class="navbar-brand mt-2 mt-lg-0" href="/">
           <img
             src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
             height="15"
@@ -40,7 +40,7 @@ export default function Navbar() {
         <div class="dropdown">
           <a
             class="text-reset me-3 dropdown-toggle hidden-arrow"
-            href="#"
+            href="/"
             id="navbarDropdownMenuLink"
             role="button"
             data-mdb-toggle="dropdown"
@@ -96,7 +96,11 @@ export default function Navbar() {
             </li>
           </ul>
         </div> */}
-        <Link to="/login" className="btn btn-primary">Login</Link>
+        {
+          (user == null) ? 
+          <Link to="/login" className="btn btn-primary">Login</Link> :
+          <p>{user.fullname}</p>
+        }
       </div>
     </div>
   </nav>

@@ -9,10 +9,15 @@ export default function Profile () {
         bio: '',
         fullname: ''
     });
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
         async function getProfile() {
             const user = await profile();
+            if (user === "Token exipred"){
+                setMessage(user);
+                alert(message);
+            }
             setUserProfile(user);
         }
         getProfile();
@@ -27,7 +32,7 @@ export default function Profile () {
                     <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style={{ backgroundColor: "#000", height: "200px" }}>
                         <div class="ms-4 mt-5 d-flex flex-column" style={{ width: 150+"px" }}>
-                        <img src={userProfile.avtar} alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style={{ width: "150px", zIndex: 1 }} />
+                        <img src={userProfile.avtar} alt={userProfile.fullname + "avatar"} class="img-fluid img-thumbnail mt-4 mb-2" style={{ width: "150px", zIndex: 1 }} />
                         <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style={{ zIndex: 1 }}>
                             Edit profile
                         </button>
@@ -64,7 +69,7 @@ export default function Profile () {
                         <p class="lead fw-normal mb-0">Your Logs</p>
                         <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
                         </div>
-                        <div class="row g-2">
+                        {/* <div class="row g-2">
                         <div class="col mb-2">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp" alt="image 1" class="w-100 rounded-3" />
                         </div>
@@ -79,7 +84,7 @@ export default function Profile () {
                         <div class="col">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp" alt="image 1" class="w-100 rounded-3" />
                         </div>
-                        </div>
+                        </div> */}
                     </div>
                     </div>
                 </div>

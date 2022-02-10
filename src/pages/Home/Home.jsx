@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getLocations } from "../../data/locations";
+import { getPopularLocations } from "../../data/locations";
 
 export default function Home () {
 
@@ -14,7 +14,7 @@ export default function Home () {
 
     useEffect(() => {   
         async function getLocs(){
-            const locs = await getLocations();
+            const locs = await getPopularLocations();
             setLocations(locs);
         }
         getLocs();
@@ -26,7 +26,10 @@ export default function Home () {
             <div className="d-flex flex-row justify-content-between">  
                 {
                     locations.map((e) => (
-                        <Link class="card" style={{ width: "16rem" }} to={`/location/${e.slug}`}>
+                        <Link 
+                            key={e.slug}
+                            class="card" style={{ width: "16rem" }} to={`/location/${e.slug}`}
+                        >
                             <div className="card-header">
                                 <img className="img-thumbnail" src={e.image} alt={e.slug} />
                             </div>

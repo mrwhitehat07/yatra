@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const access_token = localStorage.getItem('access_token');
+const access_token = localStorage.getItem('token');
 
 const axiosInstance = axios.create({
     baseURL: "http://localhost:8000/api",
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "X-Requested-With",
-        // 'Authorization': 'Bearer '+access_token
+        'Authorization': 'Bearer '+ ((access_token) ? access_token : "" )
     }
 });
 
