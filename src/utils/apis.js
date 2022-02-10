@@ -6,6 +6,7 @@ class Apis {
     static resetUrl = '/reset-password/';
     static propularLocations = '/locations/popular';
     static singleLocation = '/locations/';
+    static tripsUrl = '/trip';
 }
 
 export default Apis;

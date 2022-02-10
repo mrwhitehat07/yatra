@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 export default function Navbar({ user }) {
   return (
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <div class="container">
       <button
         class="navbar-toggler"
@@ -26,80 +27,37 @@ export default function Navbar({ user }) {
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/">Dashboard</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Team</a>
+            <a class="nav-link" href="/trip">Trips</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Projects</a>
+            <a class="nav-link" href="/">Plans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Requests</a>
           </li>
         </ul>
       </div>
       <div class="d-flex align-items-center">
-        <div class="dropdown">
-          <a
-            class="text-reset me-3 dropdown-toggle hidden-arrow"
-            href="/"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
-            <li>
-              <a class="dropdown-item" href="/">Some news</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="/">Another news</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="/">Something else here</a>
-            </li>
-          </ul>
-        </div>
-        {/* <div class="dropdown">
-          <a
-            class="dropdown-toggle d-flex align-items-center hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuAvatar"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-              class="rounded-circle"
-              height="25"
-              alt="Black and White Portrait of a Man"
-              loading="lazy"
-            />
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuAvatar"
-          >
-            <li>
-              <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Logout</a>
-            </li>
-          </ul>
-        </div> */}
         {
           (user == null) ? 
           <Link to="/login" className="btn btn-primary">Login</Link> :
-          <p>{user.fullname}</p>
+          <Link className="d-flex flex-row justify-content-evenly text-decoration-none" to="/profile">
+            <div className="mr-2">
+              <img
+                src={user.avtar}
+                className="rounded-circle"
+                height="40"
+                alt={user._id}
+                loading="lazy"
+              />
+            </div>
+            <div className="align-center py-2">
+              <p className="text-black text-decoration-none">{user.fullname}</p>
+            </div>
+          </Link>
         }
       </div>
     </div>

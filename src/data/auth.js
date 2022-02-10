@@ -46,5 +46,5 @@ export const forgot = async (email) => {
 
 export const resetPassword = async (password, token) => {
     const res = await axiosInstance.post(`${Apis.resetUrl}${token}`, password);
-    
+    return res;
 }

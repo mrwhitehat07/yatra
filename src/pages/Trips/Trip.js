@@ -1,31 +1,26 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getPopularLocations } from "../../data/locations";
+import { getUserTrips } from "../../data/trips";
+import "./Trip.css";
 
-export default function Home () {
+export default function Trip () {
 
-    const [locations, setLocations] = useState([{
-        id: '',
-        slug: '',
-        city: '',
-        country: '',
-        image: ''
-    }]);
+    const [trips, setTrips] = useState([{}]);
 
     useEffect(() => {   
-        async function getLocs(){
-            const locs = await getPopularLocations();
-            setLocations(locs);
+        async function getTrips(){
+            const locs = await getUserTrips();
+            setTrips(locs);
         }
-        getLocs();
+        getTrips();
     },[]);
 
     return (
         <div className="container">
-            <h3>Popular Locations</h3>
+            <h3>Your Trips</h3>
             <div className="d-flex flex-row justify-content-between">  
                 {
-                    locations.map((e) => (
+                    (trips.length !== 0 ) ? trips.map((e) => (
                         <Link 
                             key={e.slug}
                             className="card text-decoration-none" style={{ width: "16rem" }} to={`/location/${e.slug}`}
@@ -38,8 +33,11 @@ export default function Home () {
                                 <p className="card-text">{e.country}</p>
                             </div>
                         </Link>  
-                    ))
-                }   
+                    )) : <p>You don't have any trips</p>
+                }
+                <div className="add-container">
+
+                </div>   
             </div>
         </div>
     )

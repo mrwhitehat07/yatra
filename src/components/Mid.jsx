@@ -7,6 +7,7 @@ import Reset from "../pages/Auth/Reset";
 import Location from "../pages/Locations/Location";
 import Profile from "../pages/Profile/Profile";
 import ProtectedRoute from "../protectedRoute/protectedRoute";
+import Trip from "../pages/Trips/Trip";
 
 export default function Mid () {
     return (
@@ -23,6 +24,7 @@ export default function Mid () {
                 <Route path="/location/:slug" element={ <Location /> } />
                 <Route path="/forgot" element={ <Forgot /> } />
                 <Route path="/reset-password/:token" element={ <Reset /> } />
+                <Route path="/trip" element={ <Trip /> } />
             </Routes>
         </>
     )

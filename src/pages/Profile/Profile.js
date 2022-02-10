@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { profile } from "../../data/auth";
 
 export default function Profile () {
@@ -9,19 +10,19 @@ export default function Profile () {
         bio: '',
         fullname: ''
     });
-    const [message, setMessage] = useState("");
+    // const [message, setMessage] = useState("");
 
     useEffect(() => {
         async function getProfile() {
             const user = await profile();
             if (user === "Token exipred"){
-                setMessage(user);
-                alert(message);
+                // setMessage(user);
+                Navigate({ to: "/login" });
             }
             setUserProfile(user);
         }
         getProfile();
-    }, [])
+    }, []);
 
     return (
         <div className="container">
