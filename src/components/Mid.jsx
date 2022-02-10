@@ -9,8 +9,9 @@ import Profile from "../pages/Profile/Profile";
 import ProtectedRoute from "../protectedRoute/protectedRoute";
 import Logs from "../pages/Logs/Logs";
 import LogDetail from "../pages/Logs/LogDetail";
+import ProfileForm from "../pages/Forms/ProfileForm";
 
-export default function Mid () {
+export default function Mid ({}) {
     return (
         <>
             <Routes>
@@ -22,6 +23,7 @@ export default function Mid () {
                         <Profile />
                     </ProtectedRoute> 
                 } />
+                <Route path="/create-profile" element={ <ProfileForm /> } />
                 <Route path="/location/:slug" element={ <Location /> } />
                 <Route path="/forgot" element={ <Forgot /> } />
                 <Route path="/reset-password/:token" element={ <Reset /> } />

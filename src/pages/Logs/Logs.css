@@ -5,8 +5,29 @@
     border-radius: 25px;
 }
 
+.content-container {
+    width: 50%;
+}
+
+.log-img-container {
+    /* border-radius: 25px; */
+    width: inherit;
+    height: 200px;
+}
+
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.detail-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-container {
+    width: 50%;
+    height: 80vh;
+    /* background-color: red; */
 }

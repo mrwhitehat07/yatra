@@ -30,7 +30,7 @@ export default function Navbar({ user }) {
             <Link class="nav-link" to="/">Home</Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" to="/logs">Trips</Link>
+            <Link class="nav-link" to="/logs">Logs</Link>
           </li>
           <li class="nav-item">
             <Link class="nav-link" to="/">Plans</Link>
@@ -45,7 +45,7 @@ export default function Navbar({ user }) {
           (user === null) ? 
           <Link to="/login" className="btn btn-primary">Login</Link> :
           <Link className="d-flex flex-row justify-content-evenly text-decoration-none" to="/profile">
-            <div className="mr-2">
+            <div className="">
               <img
                 src={user.avtar}
                 className="rounded-circle"

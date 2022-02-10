@@ -47,17 +47,14 @@ const Location = () => {
                     </div>
                     <div className="info-container bg-light mt-2">
                         <div className="info mr-5">
-                            
                             <h3>14</h3>
                             <p>Visited</p>
                         </div>
-                        <div className="info mr-5">
-                            
+                        <div className="info mr-5">     
                             <h3>114</h3>
                             <p>Planning</p>
                         </div>
-                        <div className="info">
-                            
+                        <div className="info">        
                             <h3>10</h3>
                             <p>Rated</p>
                         </div>

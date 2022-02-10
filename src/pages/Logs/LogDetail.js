@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getLogsBySlug } from "../../data/logs";
+import dateFormat from 'dateformat';
 import "./Logs.css";
 
 export default function LogDetail () {
 
-    const [logs, setLogs] = useState({});
+    const [logs, setLogs] = useState({
+        location: {},
+        logs: {},
+        user: {}
+    });
     const { slug } = useParams();
 
     useEffect(() => {   
@@ -18,14 +23,32 @@ export default function LogDetail () {
 
     return (
         <div className="container">
-            <div className="d-flex flex-row justify-content-between">  
-                <div className="card-header">
-                    <img className="img-thumbnail" src={logs.image} alt={logs.slug} />
+            <div className="d-flex flex-row justify-space-evenly">  
+                <div className="content-container p-3">  
+                    <img className="log-img-container" src={logs.logs.image} alt={logs.slug} />
+                    <div className="detail-header">
+                        <h1 className="card-text">{logs.logs.title}</h1>
+                        <p className="text-dark">{dateFormat(logs.logs.updatedAt, "mmmm d, yyyy")}</p>
+                    </div>
+                    <p className="card-text mt-2">Visit Date: {dateFormat(logs.logs.visitDate, "mmmm d, yyyy")}</p>
+                    <p className="card-text mt-2">{logs.logs.description}</p>
                 </div>
-                <div className="card-body">
-                    <p className="card-text">{logs.city}</p>
-                    <p className="card-text">{logs.country}</p>
-                </div>        
+                <div className="user-container p-4">
+                    <img
+                        src={logs.user.avtar}
+                        className="rounded-circle mt-5"
+                        height="80"
+                        alt={logs.user.fullname}
+                        loading="lazy"
+                    />
+                    <h4 className="card-text mt-2">{logs.user.fullname}</h4>
+                    <hr />
+                    <p className="text-dark">{logs.user.bio}</p>
+                    <hr />
+                    <div>
+                        <h6>More from {logs.user.fullname}</h6>
+                    </div>
+                </div>
             </div>
         </div>
     )
