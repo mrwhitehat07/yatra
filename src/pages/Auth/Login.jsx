@@ -16,7 +16,7 @@ export default function Login () {
     }
 
     return (
-    <>
+    <div className="container d-flex flex-row justify-content-center align-center">
         <form className="form-group" onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label for="email" className="form-label">Email address</label>
@@ -47,6 +47,6 @@ export default function Login () {
             <label className="my-3 form-check-label" for="register">Don't have an accounnt? <Link to="/register">Register</Link></label><br />
             <label className="my-3 form-check-label" for="register"><Link to="/forgot">Forgot Password?</Link></label>
         </form>
-    </>
+    </div>
     )
 }

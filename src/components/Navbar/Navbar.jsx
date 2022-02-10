@@ -27,22 +27,22 @@ export default function Navbar({ user }) {
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <Link class="nav-link" to="/">Home</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/trip">Trips</a>
+            <Link class="nav-link" to="/logs">Trips</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Plans</a>
+            <Link class="nav-link" to="/">Plans</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Requests</a>
+            <Link class="nav-link" to="/">Requests</Link>
           </li>
         </ul>
       </div>
       <div class="d-flex align-items-center">
         {
-          (user == null) ? 
+          (user === null) ? 
           <Link to="/login" className="btn btn-primary">Login</Link> :
           <Link className="d-flex flex-row justify-content-evenly text-decoration-none" to="/profile">
             <div className="mr-2">

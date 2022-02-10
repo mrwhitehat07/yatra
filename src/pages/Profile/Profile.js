@@ -10,13 +10,11 @@ export default function Profile () {
         bio: '',
         fullname: ''
     });
-    // const [message, setMessage] = useState("");
 
     useEffect(() => {
         async function getProfile() {
             const user = await profile();
-            if (user === "Token exipred"){
-                // setMessage(user);
+            if (user === "Token expired"){
                 Navigate({ to: "/login" });
             }
             setUserProfile(user);

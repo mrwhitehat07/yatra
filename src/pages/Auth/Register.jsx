@@ -16,41 +16,41 @@ export default function Register () {
     }
 
     return (
-    <>
-        <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-                <label for="email" className="form-label">Email address</label>
-                <input 
-                type="email" 
-                className="form-control" 
-                id="email" 
-                aria-describedby="emailHelp"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                />
-            </div>
-            <div className="mb-3">
-                <label for="password" className="form-label">Password</label>
-                <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                />
-            </div>
-            <div className="mb-3">
-                <label for="conf-password" className="form-label">Confirm Password</label>
-                <input
-                type="password"
-                className="form-control"
-                id="conf-password"
-                value={cnfPassword}
-                onChange={e => setCnfPassword(e.target.value)}
-                />
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
-    </>
+        <div className="container d-flex flex-row justify-content-center align-middle">
+            <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                    <label for="email" className="form-label">Email address</label>
+                    <input 
+                    type="email" 
+                    className="form-control" 
+                    id="email" 
+                    aria-describedby="emailHelp"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label for="password" className="form-label">Password</label>
+                    <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label for="conf-password" className="form-label">Confirm Password</label>
+                    <input
+                    type="password"
+                    className="form-control"
+                    id="conf-password"
+                    value={cnfPassword}
+                    onChange={e => setCnfPassword(e.target.value)}
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
     )
 }

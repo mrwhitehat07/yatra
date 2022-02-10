@@ -7,6 +7,8 @@ class Apis {
     static propularLocations = '/locations/popular';
     static singleLocation = '/locations/';
     static tripsUrl = '/trip';
+    static logsUrl = '/logs';
+    static singleLog = '/logs/';
 }
 
 export default Apis;

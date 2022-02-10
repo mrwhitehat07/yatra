@@ -4,3 +4,9 @@
     background-color: grey;
     border-radius: 25px;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
