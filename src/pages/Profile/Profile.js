@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { profile } from "../../data/auth";
+import { logout, profile } from "../../data/auth";
 
 export default function Profile () {
 
@@ -31,14 +31,25 @@ export default function Profile () {
                     <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style={{ backgroundColor: "#000", height: "200px" }}>
                         <div class="ms-4 mt-5 d-flex flex-column" style={{ width: 150+"px" }}>
-                        <img src={userProfile.avtar} alt={userProfile.fullname + "avatar"} class="img-fluid img-thumbnail mt-4 mb-2" style={{ width: "150px", zIndex: 1 }} />
-                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style={{ zIndex: 1 }}>
-                            Edit profile
-                        </button>
+                            <img src={userProfile.avtar} alt={userProfile.fullname + "avatar"} class="img-fluid img-thumbnail mt-4 mb-2" style={{ width: "150px", zIndex: 1 }} />
+                            <button 
+                                type="button" 
+                                class="btn btn-outline-dark" 
+                                data-mdb-ripple-color="dark" 
+                                style={{ zIndex: 1 }}
+                                onClick={() => logout()}
+                            >
+                                Edit profile
+                            </button>
                         </div>
                         <div class="ms-3" style={{ marginTop: "130px" }}>
-                        <h5>{ userProfile.fullname }</h5>
-                        <p>{ userProfile.address }</p>
+                            <h5>{ userProfile.fullname }</h5>
+                            <p>{ userProfile.address }</p>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-outline-danger" data-mdb-ripple-color="dark" style={{ zIndex: 1 }}>
+                                Logout
+                            </button>
                         </div>
                     </div>
                     <div class="p-4 text-black" style={{ backgroundColor: "#f8f9fa" }}>

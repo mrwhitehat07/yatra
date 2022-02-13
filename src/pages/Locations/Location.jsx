@@ -43,7 +43,7 @@ const Location = () => {
                     <img className="img-container" src={location.image} alt={location.city} />
                     <div className="d-flex flex-row mt-2">
                         <h2>{location.city},</h2>
-                        <h2> {location.country}</h2>
+                        <h2>{location.country}</h2>
                     </div>
                     <div className="info-container bg-light mt-2">
                         <div className="info mr-5">

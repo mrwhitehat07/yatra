@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar({ user }) {
+
+  const token = localStorage.getItem('token');
+
   return (
   <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <div class="container">
@@ -30,7 +34,7 @@ export default function Navbar({ user }) {
             <Link class="nav-link" to="/">Home</Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" to="/logs">Logs</Link>
+            <Link class="nav-link" to="/logs">My Logs</Link>
           </li>
           <li class="nav-item">
             <Link class="nav-link" to="/">Plans</Link>
@@ -42,7 +46,7 @@ export default function Navbar({ user }) {
       </div>
       <div class="d-flex align-items-center">
         {
-          (user === null) ? 
+          (user === "Token expired" || token === null) ? 
           <Link to="/login" className="btn btn-primary">Login</Link> :
           <Link className="d-flex flex-row justify-content-evenly text-decoration-none" to="/profile">
             <div className="">

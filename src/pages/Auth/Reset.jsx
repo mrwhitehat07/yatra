@@ -8,12 +8,13 @@ export default function Reset () {
     const [cnfPassword, setCnfPassword] = useState("");
     const { token } = useParams();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
-            password,cnfPassword
+            newPassword: password,
+            cnfPassword: cnfPassword
         }
-        resetPassword(data, token);
+        const res = await resetPassword(data, token);
     }
 
     return (

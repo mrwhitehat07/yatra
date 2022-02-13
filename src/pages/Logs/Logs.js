@@ -9,7 +9,7 @@ export default function Logs () {
     const [logs, setLogs] = useState([{
         image: '',
         title: '',
-        visitDate: '',
+        visitDate: Date.now(),
     }]);
 
     useEffect(() => {   
@@ -47,7 +47,8 @@ export default function Logs () {
                                 <p className="card-text">{dateFormat(e.updatedAt, "dS mmmm, yyyy")}</p>
                             </div>
                         </Link>  
-                    )) : <p>You don't have any logs story</p>
+                    )) 
+                    : <p>You don't have any logs story</p>
                 }   
             </div>
         </div>

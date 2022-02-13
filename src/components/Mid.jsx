@@ -27,7 +27,11 @@ export default function Mid ({}) {
                 <Route path="/location/:slug" element={ <Location /> } />
                 <Route path="/forgot" element={ <Forgot /> } />
                 <Route path="/reset-password/:token" element={ <Reset /> } />
-                <Route path="/logs" element={ <Logs /> } />
+                <Route path="/logs" element={ 
+                    <ProtectedRoute>
+                        <Logs /> 
+                    </ProtectedRoute>
+                } />
                 <Route path="/logs/:slug" element={ <LogDetail /> } />
             </Routes>
         </>

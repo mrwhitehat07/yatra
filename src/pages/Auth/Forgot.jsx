@@ -5,12 +5,13 @@ export default function Forgot () {
 
     const [email, setEmail] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
             email
         } 
-        forgot(data);
+        const res = await forgot(data);
+        alert(res.data)
     }
 
     return (

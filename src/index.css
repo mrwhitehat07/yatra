@@ -1,12 +1,4 @@
-.map-container {
-    height: 85vh;
-    width: 50vw;
-    border-radius: 25px;
-    position: sticky;
-    top: 0;
-    right: 0;
-    z-index: 1;
-}
+
 
 form {
     width: 60vw;
