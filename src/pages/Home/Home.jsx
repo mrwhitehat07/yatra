@@ -43,14 +43,12 @@ export default function Home () {
                             style={{ width: "18rem" }} to={`/location/${e.slug}`}
                         >
                             <img className="child " src={e.image} alt={e.slug} />
-                            {/* <div className="card-img-overlay"> */}
-                                <span className="card-text text-white">{e.city}, {e.country}</span>
-                            {/* </div> */}
+                            <span className="card-text text-white">{e.city}, {e.country}</span>
                         </Link>  
                     ))
                 }   
             </div>
-            <h3 className="mb-2">Blog From People</h3>
+            <h3 className="mb-2">Blogs From People</h3>
             <div className="d-flex flex-row justify-content-between">  
                 {
                     logs.map((e) => (
@@ -60,7 +58,7 @@ export default function Home () {
                             style={{ width: "16rem" }} to={`/logs/${e.slug}`}
                         >
                             <div className="card-header">
-                                <img className="img-thumbnail" src={e.image} alt={e.slug} />
+                                <img className="card-img" src={e.image} alt={e.slug} />
                             </div>
                             <div className="card-body">
                                 <p className="card-text">{e.title}</p>

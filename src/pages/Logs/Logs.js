@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getUserLogs } from "../../data/logs";
 import dateFormat from 'dateformat';
 import "./Logs.css";
@@ -11,6 +11,7 @@ export default function Logs () {
         title: '',
         visitDate: Date.now(),
     }]);
+    const navigate = useNavigate();
 
     useEffect(() => {   
         async function getLogs(){
@@ -27,6 +28,7 @@ export default function Logs () {
                 <button 
                     type="button" 
                     className="btn btn-primary"
+                    onClick={() => navigate('/trip-form')}
                 >
                     <i class="bi bi-plus" style={{ fontSize: 20 }}></i>
                     Add Trips

@@ -15,6 +15,7 @@ export default function Reset () {
             cnfPassword: cnfPassword
         }
         const res = await resetPassword(data, token);
+        alert(res);
     }
 
     return (

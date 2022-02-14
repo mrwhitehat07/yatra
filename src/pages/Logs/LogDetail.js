@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getLogsBySlug } from "../../data/logs";
 import dateFormat from 'dateformat';
 import "./Logs.css";
+import { UserContext } from "../../App";
 
 export default function LogDetail () {
 
@@ -12,6 +13,7 @@ export default function LogDetail () {
         user: {}
     });
     const { slug } = useParams();
+    const userContext = useContext(UserContext);
 
     useEffect(() => {   
         async function getLogs(){
@@ -42,6 +44,7 @@ export default function LogDetail () {
                         loading="lazy"
                     />
                     <h4 className="card-text mt-2">{logs.user.fullname}</h4>
+                    { (logs.user.user ===  userContext.user._id) ? <p>Edit</p> : ""}
                     <hr />
                     <p className="text-dark">{logs.user.bio}</p>
                     <hr />

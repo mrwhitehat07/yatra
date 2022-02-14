@@ -14,7 +14,7 @@ export default function Login () {
             email, password
         } 
         const res = await login(data);
-        if (res == "success"){
+        if (res === "success"){
             window.location.reload(true);
             navigate("/");
         } 

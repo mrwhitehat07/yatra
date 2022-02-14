@@ -5,7 +5,7 @@ import Mid from "./components/Mid.jsx";
 import { useState, createContext, useEffect } from "react";
 import { profile } from "./data/auth";
 
-const UserContext = createContext();
+export const UserContext = createContext();
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <UserContext.Provider value={user}>
+      <UserContext.Provider value={{ user: user}}>
         <Router>
           <Navbar user={user} />
           <Mid />

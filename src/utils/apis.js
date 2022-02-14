@@ -8,6 +8,7 @@ class Apis {
     static singleLocation = '/locations/';
     static tripsUrl = '/trip';
     static logsUrl = '/logs';
+    static popularLogsUrl = '/logs/popular';
     static mylogsUrl = '/logs/me';
     static singleLog = '/logs/';
 }

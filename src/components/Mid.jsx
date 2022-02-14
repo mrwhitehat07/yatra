@@ -10,8 +10,9 @@ import ProtectedRoute from "../protectedRoute/protectedRoute";
 import Logs from "../pages/Logs/Logs";
 import LogDetail from "../pages/Logs/LogDetail";
 import ProfileForm from "../pages/Forms/ProfileForm";
+import TripForm from "../pages/Forms/TripForm";
 
-export default function Mid ({}) {
+export default function Mid () {
     return (
         <>
             <Routes>
@@ -33,6 +34,7 @@ export default function Mid ({}) {
                     </ProtectedRoute>
                 } />
                 <Route path="/logs/:slug" element={ <LogDetail /> } />
+                <Route path="/trip-form" element={ <TripForm /> } />
             </Routes>
         </>
     )
