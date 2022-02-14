@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProfileForm () {
+export default function UpdateProfileForm () {
 
     const [fullname, setFullname] = useState("");
     const [bio, setBio] = useState("");
@@ -14,9 +14,8 @@ export default function ProfileForm () {
     return (
         <div className="container d-flex flex-row justify-content-center align-center">
             <form>
-                <h2 className="my-3">Create Profile</h2>
+                <h2 className="my-3">Update Profile</h2>
                 <div className="mb3 align-center">
-                
                     <label for="image" className="form-label">Avatar</label>
                     <input 
                         className="form-control mb-3"

@@ -15,8 +15,8 @@ export default function Login () {
         } 
         const res = await login(data);
         if (res === "success"){
-            window.location.reload(true);
             navigate("/");
+            window.location.reload(true);
         } 
         else {
             alert(res);
@@ -26,6 +26,7 @@ export default function Login () {
     return (
     <div className="container d-flex flex-row justify-content-center align-center">
         <form className="form-group" onSubmit={handleSubmit}>
+            <h2 className="my-3">Login</h2>
             <div className="mb-3">
                 <label for="email" className="form-label">Email address</label>
                 <input 

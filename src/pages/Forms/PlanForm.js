@@ -6,7 +6,7 @@ import "./Form.css";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmlzaGFscmFuYW1hZ2FyIiwiYSI6ImNrd3Q3NXc1OTBrcjQyb21oNHNrOWNrYW8ifQ.rCLxzQPHDiylqH8_VzvafA';
 
-export default function TripForm () {
+export default function PlanForm () {
 
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
@@ -58,7 +58,7 @@ export default function TripForm () {
     return (
         <div className="container d-flex flex-row justify-content-center align-center">
             <form className="form-group">
-                <h1 className="my-3">Add Your Logs</h1>
+                <h2 className="my-3">Create Trip Plans</h2>
                 <div className="mb-3">
                     <label for="title" className="form-label">Title</label>
                     <input 

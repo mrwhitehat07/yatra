@@ -40,7 +40,7 @@ export default function Home () {
                         <Link 
                             key={e.slug}
                             className="card text-decoration-none rounded-5" 
-                            style={{ width: "18rem" }} to={`/location/${e.slug}`}
+                            style={{ width: "17rem" }} to={`/location/${e.slug}`}
                         >
                             <img className="child " src={e.image} alt={e.slug} />
                             <span className="card-text text-white">{e.city}, {e.country}</span>

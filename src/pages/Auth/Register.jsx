@@ -18,6 +18,7 @@ export default function Register () {
     return (
         <div className="container d-flex flex-row justify-content-center align-middle">
             <form onSubmit={handleSubmit}>
+                <h2 className="my-3">Register</h2>
                 <div className="mb-3">
                     <label for="email" className="form-label">Email address</label>
                     <input 

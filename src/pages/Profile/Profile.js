@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { logout, profile } from "../../data/auth";
 
 export default function Profile () {
@@ -10,6 +10,7 @@ export default function Profile () {
         bio: '',
         fullname: ''
     });
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function getProfile() {
@@ -37,7 +38,7 @@ export default function Profile () {
                                 class="btn btn-outline-dark" 
                                 data-mdb-ripple-color="dark" 
                                 style={{ zIndex: 1 }}
-                                onClick={() => logout()}
+                                onClick={() => navigate("/edit-profile")}
                             >
                                 Edit profile
                             </button>
@@ -47,7 +48,13 @@ export default function Profile () {
                             <p>{ userProfile.address }</p>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-outline-danger" data-mdb-ripple-color="dark" style={{ zIndex: 1 }}>
+                            <button 
+                                type="button" 
+                                class="btn btn-outline-danger" 
+                                data-mdb-ripple-color="dark" 
+                                style={{ zIndex: 1 }}
+                                onClick={logout}
+                            >
                                 Logout
                             </button>
                         </div>

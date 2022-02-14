@@ -34,7 +34,42 @@ export const profile = async () => {
             return res.data;
         }
     }
+}
 
+export const createProfile = async () => {
+    const res = await axiosInstance.post(Apis.profileUrl);
+    if(res.status === 200){
+        if(res.data.name === "TokenExpiredError"){
+            return "Token expired";
+        }   
+        else {
+            return res.data;
+        }
+    }
+}
+
+export const updateProfile = async () => {
+    const res = await axiosInstance.put(Apis.profileUrl);
+    if(res.status === 200){
+        if(res.data.name === "TokenExpiredError"){
+            return "Token expired";
+        }   
+        else {
+            return res.data;
+        }
+    }
+}
+
+export const updateProfileImage = async () => {
+    const res = await axiosInstance.put(Apis.profileImageUrl);
+    if(res.status === 200){
+        if(res.data.name === "TokenExpiredError"){
+            return "Token expired";
+        }   
+        else {
+            return res.data;
+        }
+    }
 }
 
 export const forgot = async (email) => {
@@ -51,7 +86,7 @@ export const resetPassword = async (data, token) => {
     return res;
 }
 
-export const logout = () => {
+export const logout = (e) => {
     localStorage.setItem("token", "");
     window.location.reload(true);
 }

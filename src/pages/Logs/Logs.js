@@ -23,7 +23,7 @@ export default function Logs () {
 
     return (
         <div className="container">
-            <div className="header">
+            <div className="header my-3">
                 <h3>Your Travel Logs</h3>
                 <button 
                     type="button" 
