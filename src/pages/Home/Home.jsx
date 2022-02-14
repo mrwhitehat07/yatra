@@ -39,13 +39,13 @@ export default function Home () {
                     locations.map((e) => (
                         <Link 
                             key={e.slug}
-                            className="card text-decoration-none rounded" 
+                            className="card text-decoration-none rounded-5" 
                             style={{ width: "18rem" }} to={`/location/${e.slug}`}
                         >
-                            <img className="card-img" src={e.image} alt={e.slug} />
-                            <div className="card-img-overlay">
-                                <h4 className="card-text text-white">{e.city}, {e.country}</h4>
-                            </div>
+                            <img className="child " src={e.image} alt={e.slug} />
+                            {/* <div className="card-img-overlay"> */}
+                                <span className="card-text text-white">{e.city}, {e.country}</span>
+                            {/* </div> */}
                         </Link>  
                     ))
                 }   
