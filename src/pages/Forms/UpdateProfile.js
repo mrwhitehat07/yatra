@@ -33,7 +33,6 @@ export default function UpdateProfileForm () {
 
     const updateImage = async (e) => {
         e.preventDefault(); 
-        console.log(avtar);
         if (avtar === null) {
             alert("No image selected");
         }

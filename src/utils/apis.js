@@ -2,6 +2,7 @@ class Apis {
     static loginUrl = '/login';
     static registerUrl = '/register';
     static profileUrl = '/profile';
+    static profileDetailUrl = '/profile/detail';
     static profileImageUrl = '/profile/image';
     static forgotUrl = '/forgot-password';
     static resetUrl = '/reset-password/';

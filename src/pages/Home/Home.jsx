@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import { getPopularLocations } from "../../data/locations";
 import { getAllLogs } from "../../data/logs";

@@ -36,6 +36,7 @@ export default function Login () {
                 aria-describedby="emailHelp"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                required
                 />
             </div>
             <div className="mb-3">
@@ -46,15 +47,12 @@ export default function Login () {
                 id="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+                required
                 />
             </div>
-            <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input" id="remember" />
-                <label className="form-check-label" for="remember">Remember me</label>
-            </div>
             <button type="submit" className="btn btn-primary">Submit</button><br />
-            <label className="my-3 form-check-label" for="register">Don't have an accounnt? <Link to="/register">Register</Link></label><br />
-            <label className="my-3 form-check-label" for="register"><Link to="/forgot">Forgot Password?</Link></label>
+            <label className="my-3 form-check-label" for="register">Don't have an accounnt? <Link to="/register" className="text-decoration-none">Register</Link></label><br />
+            <label className="my-3 form-check-label" for="register"><Link to="/forgot" className="text-decoration-none">Forgot Password?</Link></label>
         </form>
     </div>
     )

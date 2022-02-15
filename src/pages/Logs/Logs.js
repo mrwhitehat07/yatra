@@ -28,7 +28,7 @@ export default function Logs () {
                 <button 
                     type="button" 
                     className="btn btn-primary"
-                    onClick={() => navigate('/trip-form')}
+                    onClick={() => navigate('/log-form')}
                 >
                     <i class="bi bi-plus" style={{ fontSize: 20 }}></i>
                     Add Trips

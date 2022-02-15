@@ -13,6 +13,7 @@ import ProfileForm from "../pages/Forms/ProfileForm";
 import UpdateProfileForm from "../pages/Forms/UpdateProfile";
 import TripForm from "../pages/Forms/TripForm";
 import PlanForm from "../pages/Forms/PlanForm";
+import Plan from "../pages/Plan/Plan";
 
 export default function Mid () {
     return (
@@ -26,6 +27,7 @@ export default function Mid () {
                         <Profile />
                     </ProtectedRoute> 
                 } />
+                
                 <Route path="/create-profile" element={ <ProfileForm /> } />
                 <Route path="/edit-profile" element={ <UpdateProfileForm /> } />
                 <Route path="/create-plan" element={ <PlanForm /> } />
@@ -38,6 +40,8 @@ export default function Mid () {
                     </ProtectedRoute>
                 } />
                 <Route path="/logs/:slug" element={ <LogDetail /> } />
+                <Route path="/trips" element={ <Plan /> } />
+                <Route path="/log-form" element={ <TripForm /> } />
                 <Route path="/trip-form" element={ <TripForm /> } />
             </Routes>
         </>

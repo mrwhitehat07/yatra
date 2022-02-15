@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { createProfile } from "../../data/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileForm () {
 
@@ -6,9 +8,22 @@ export default function ProfileForm () {
     const [bio, setBio] = useState("");
     const [address, setAddress] = useState("");
     const [avtar, setAvtar] = useState(null);
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        const formData = new FormData();
+        formData.append('avtar', avtar);
+        formData.append('fullname', fullname);
+        formData.append('bio', bio);
+        formData.append('address', address);
+        let res = await createProfile(formData);
+        if (res === "profile created successfully"){
+            navigate('/profile');
+        }
+        else {
+            alert(res);
+        }
     }
 
     return (
@@ -30,18 +45,37 @@ export default function ProfileForm () {
                         className="form-control" 
                         id="fullname" 
                         aria-describedby="nameHelp"
-
+                        value={fullname}
+                        onChange={e => setFullname(e.target.value)}
                     />
                 </div>
                 <div className="mb-3">
                     <label for="bio" className="form-label">Bio</label>
-                    <textarea className="form-control" id="bio" rows="3"></textarea>
+                    <textarea 
+                        className="form-control" 
+                        id="bio" 
+                        rows="3"
+                        value={bio}
+                        onChange={e => setBio(e.target.value)}
+                    ></textarea>
                 </div>
                 <div className="mb-3">
                     <label for="address" className="form-label">Address</label>
-                    <input type="text" className="form-control" id="address" />
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="address" 
+                        value={address}
+                        onChange={e => setAddress(e.target.value)}
+                    />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button 
+                    type="submit" 
+                    className="btn btn-primary"
+                    onClick={handleSubmit}
+                >
+                    Submit
+                </button>
             </form>
         </div>
     )

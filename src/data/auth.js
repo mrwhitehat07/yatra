@@ -15,11 +15,11 @@ export const login = async (user) => {
 
 export const register = async (user) => {
     const res = await axiosInstance.post(Apis.registerUrl, user);
-    if(res.status === 200){
-        console.log(res.data.message);
+    if(res.status === 201){
+        return res.data.message;
     }
-    else if (res.status === 404){
-        console.log("No user");
+    else if (res.status === 403){
+        return res.data.message;
     }
    
 }
@@ -34,12 +34,35 @@ export const profile = async () => {
             return res.data;
         }
     }
+    else if  (res.status === 404){
+        return "No profile";
+    }
 }
 
-export const createProfile = async () => {
-    const res = await axiosInstance.post(Apis.profileUrl);
-    if(res.status === 201){ 
-        return "Success"; 
+export const profileDetail = async () => {
+    const res = await axiosInstance.get(Apis.profileDetailUrl);
+    if(res.status === 200){
+        if(res.data.name === "TokenExpiredError"){
+            return "Token expired";
+        }   
+        else {
+            return res.data;
+        }
+    }
+    else if  (res.status === 404){
+        return "No profile";
+    }
+}
+
+export const createProfile = async (data) => {
+    const res = await axiosInstance.post(Apis.profileUrl, data);
+    if (res.status === 201){ 
+        return res.data.message; 
+    }
+    else if (res.status === 200){
+        if(res.data.name === "TokenExpiredError"){
+            return "Token expired";
+        }   
     }
 }
 

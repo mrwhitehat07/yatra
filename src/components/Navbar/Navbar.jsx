@@ -36,7 +36,7 @@ export default function Navbar({ user }) {
             <Link class="nav-link" to="/logs">My Logs</Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" to="/">Plans</Link>
+            <Link class="nav-link" to="/trips">Plans</Link>
           </li>
           <li class="nav-item">
             <Link class="nav-link" to="/">Requests</Link>
@@ -47,20 +47,28 @@ export default function Navbar({ user }) {
         {
           (user === "Token expired" || token === null) ? 
           <Link to="/login" className="btn btn-primary">Login</Link> :
-          <Link className="d-flex flex-row justify-content-evenly text-decoration-none" to="/profile">
             <div className="">
-              <img
-                src={user.avtar}
-                className="rounded-circle"
-                height="40"
-                alt={user._id}
-                loading="lazy"
-              />
+              {
+                (user.avtar && user.fullname) ? 
+                <Link to="/profile" className=" d-flex flex-row text-decoration-none">
+                  <img
+                    src={user.avtar}
+                    className="rounded-circle mx-2"
+                    height="40"
+                    alt={user._id}
+                    loading="lazy"
+                  /> 
+                  <p className="text-dark text-decoration-none font-weight-bold my-auto">{user.fullname}</p>
+                </Link>
+                : 
+                <Link to="/create-profile" className="text-decoration-none">
+                  <div className="mx-3 d-flex">
+                    <i className="bi bi-person-circle mx-2" style={{ color: "#000", fontSize: "30px" }}></i>
+                    <p className="text-dark text-decoration-none font-weight-bold my-auto">Profile</p>
+                  </div>
+                </Link>
+              }
             </div>
-            <div className="align-center py-2">
-              <p className="text-black text-decoration-none">{user.fullname}</p>
-            </div>
-          </Link>
         }
       </div>
     </div>
