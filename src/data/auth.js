@@ -38,6 +38,13 @@ export const profile = async () => {
 
 export const createProfile = async () => {
     const res = await axiosInstance.post(Apis.profileUrl);
+    if(res.status === 201){ 
+        return "Success"; 
+    }
+}
+
+export const updateProfile = async (data) => {
+    const res = await axiosInstance.put(Apis.profileUrl, data);
     if(res.status === 200){
         if(res.data.name === "TokenExpiredError"){
             return "Token expired";
@@ -48,20 +55,12 @@ export const createProfile = async () => {
     }
 }
 
-export const updateProfile = async () => {
-    const res = await axiosInstance.put(Apis.profileUrl);
-    if(res.status === 200){
-        if(res.data.name === "TokenExpiredError"){
-            return "Token expired";
-        }   
-        else {
-            return res.data;
+export const updateProfileImage = async (image) => {
+    const res = await axiosInstance.put(Apis.profileImageUrl, image, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
         }
-    }
-}
-
-export const updateProfileImage = async () => {
-    const res = await axiosInstance.put(Apis.profileImageUrl);
+    });
     if(res.status === 200){
         if(res.data.name === "TokenExpiredError"){
             return "Token expired";
