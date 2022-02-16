@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { Link } from "react-router-dom";
 import { getPopularLocations } from "../../data/locations";
 import { getAllLogs } from "../../data/logs";
@@ -35,7 +34,7 @@ export default function Home () {
     return (
         <div className="container">
             <h3 className="mb-2">Popular Locations</h3>
-            <div className="d-flex flex-row justify-content-between mb-5">  
+            <div className="home-content">  
                 {
                     locations.map((e) => (
                         <Link 
@@ -43,14 +42,14 @@ export default function Home () {
                             className="card text-decoration-none rounded-5" 
                             style={{ width: "17rem" }} to={`/location/${e.slug}`}
                         >
-                            <img className="child " src={e.image} alt={e.slug} />
+                            <img className="child card-img" src={e.image} alt={e.slug} />
                             <span className="card-text text-white">{e.city}, {e.country}</span>
                         </Link>  
                     ))
                 }   
             </div>
             <h3 className="mb-2">Blogs From People</h3>
-            <div className="d-flex flex-row justify-content-between">  
+            <div className="home-content d-flex flex-row justify-content-between">  
                 {
                     logs.map((e) => (
                         <Link 

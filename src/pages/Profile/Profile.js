@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { logout, profileDetail } from "../../data/auth";
+import "./Profile.css";
 
 export default function Profile () {
 
@@ -14,6 +15,7 @@ export default function Profile () {
     const [imageCount, setImageCount] = useState(0);
     const [logCount, setLogCount] = useState(0);
     const [planCount, setPlanCount] = useState(0);
+    const [isVerified, setIsVerified] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,6 +29,7 @@ export default function Profile () {
             setImageCount(user.imageCount);
             setLogCount(user.logCount);
             setPlanCount(user.planCount);
+            setIsVerified(user.user.isVerified);
         }
         getProfile();
     }, []);
@@ -39,8 +42,8 @@ export default function Profile () {
                         <div class="col col-lg-9 col-xl-7">
                             <div class="card">
                                 <div class="rounded-top text-white d-flex flex-row" style={{ backgroundColor: "#000", height: "200px" }}>
-                                    <div class="ms-4 mt-5 d-flex flex-column" style={{ width: 150+"px" }}>
-                                        <img src={userProfile.avtar} alt={userProfile.fullname + "avatar"} class="img-fluid img-thumbnail mt-4 mb-2" style={{ width: "150px", zIndex: 1 }} />
+                                    <div class="img-container ms-4 mt-5 d-flex flex-column" style={{ width: 150+"px" }}>
+                                        <img src={userProfile.avtar} alt={userProfile.fullname + "avatar"} class="pimg img-fluid img-thumbnail mx-auto mt-4 mb-2" style={{ width: "150px", zIndex: 1 }} />
                                         <button 
                                             type="button" 
                                             class="btn btn-outline-dark" 
@@ -52,8 +55,16 @@ export default function Profile () {
                                         </button>
                                     </div>
                                     <div class="ms-3" style={{ marginTop: "130px" }}>
-                                        <h5>{ userProfile.fullname }</h5>
-                                        <p>{ userProfile.address }</p>
+                                        <div className="d-flex">
+                                            <h5 className="mx-2">{ userProfile.fullname }</h5>
+                                            { 
+                                                (isVerified === true) ?
+                                                (<i className="bi bi-check-circle-fill" style={{ color: "#48d1cc" }}></i>)
+                                                :
+                                                <div></div>
+                                            }
+                                        </div>
+                                        <p className="mx-2">{ userProfile.address }</p>
                                     </div>
                                     <div className="mt-2">
                                         <button 
@@ -90,17 +101,17 @@ export default function Profile () {
                                             <p class="font-italic mb-1">{ userProfile.bio }</p>
                                         </div>
                                     </div>
-                                    <div className="d-flex flex-row justify-space-between">
+                                    <div className="d-flex flex-row justify-content-between">
                                         <p class="lead fw-normal mb-2">Your Logs Images</p>
-                                        {/* <Link to="" className="text-decoration-none">
+                                        <Link to="" className="text-decoration-none">
                                             See More
-                                        </Link> */}
+                                        </Link>
                                     </div>
                                     <div class="row g-2">
                                         {
                                             images.map((image) => (
                                                 <div class="col mb-2">
-                                                    <img src={image} alt="logimages" class="w-100 rounded-3" />
+                                                    <img src={image} alt="logimages" class="logimg w-100 rounded-3" />
                                                 </div>
                                             ))
                                         }

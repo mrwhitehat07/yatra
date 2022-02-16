@@ -40,9 +40,9 @@ export default function Mid () {
                     </ProtectedRoute>
                 } />
                 <Route path="/logs/:slug" element={ <LogDetail /> } />
-                <Route path="/trips" element={ <Plan /> } />
-                <Route path="/log-form" element={ <TripForm /> } />
-                <Route path="/trip-form" element={ <TripForm /> } />
+                <Route path="/trips" element={ <ProtectedRoute><Plan /></ProtectedRoute>} />
+                <Route path="/log-form" element={ <ProtectedRoute><TripForm /></ProtectedRoute> } />
+                <Route path="/trip-form" element={ <ProtectedRoute><PlanForm /></ProtectedRoute> } />
             </Routes>
         </>
     )

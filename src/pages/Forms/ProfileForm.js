@@ -19,6 +19,7 @@ export default function ProfileForm () {
         formData.append('address', address);
         let res = await createProfile(formData);
         if (res === "profile created successfully"){
+            window.location.reload(true);
             navigate('/profile');
         }
         else {

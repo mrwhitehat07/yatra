@@ -11,15 +11,14 @@ export default function Navbar({ user }) {
       <button
         class="navbar-toggler"
         type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
+        data-bs-target="navbarTogglerDemo01" 
+        aria-controls="navbarTogglerDemo01" 
+        aria-expanded="false" 
         aria-label="Toggle navigation"
       >
-        <i class="fas fa-bars"></i>
+        <i className="bi bi-list"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand mt-2 mt-lg-0" href="/">
           <img
             src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
@@ -49,7 +48,7 @@ export default function Navbar({ user }) {
           <Link to="/login" className="btn btn-primary">Login</Link> :
             <div className="">
               {
-                (user.avtar && user.fullname) ? 
+                (user.message !== "No Profile") ? 
                 <Link to="/profile" className=" d-flex flex-row text-decoration-none">
                   <img
                     src={user.avtar}
@@ -58,13 +57,13 @@ export default function Navbar({ user }) {
                     alt={user._id}
                     loading="lazy"
                   /> 
-                  <p className="text-dark text-decoration-none font-weight-bold my-auto">{user.fullname}</p>
+                  <p className="navtext text-dark text-decoration-none font-weight-bold my-auto">{user.fullname}</p>
                 </Link>
                 : 
                 <Link to="/create-profile" className="text-decoration-none">
                   <div className="mx-3 d-flex">
                     <i className="bi bi-person-circle mx-2" style={{ color: "#000", fontSize: "30px" }}></i>
-                    <p className="text-dark text-decoration-none font-weight-bold my-auto">Profile</p>
+                    <p className="navtext text-dark text-decoration-none font-weight-bold my-auto">Profile</p>
                   </div>
                 </Link>
               }

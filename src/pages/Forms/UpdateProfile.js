@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { profile, updateProfile, updateProfileImage } from "../../data/auth";
+import { useNavigate } from "react-router-dom";
 import "./Form.css";
 
 export default function UpdateProfileForm () {
@@ -9,6 +10,7 @@ export default function UpdateProfileForm () {
     const [bio, setBio] = useState("");
     const [address, setAddress] = useState("");
     const [avtar, setAvtar] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function getUser() {
@@ -28,7 +30,13 @@ export default function UpdateProfileForm () {
             address
         }
         let res = await updateProfile(data);
-        console.log(res);
+        if (res === "profile updated successfully") {
+            window.location.reload(true);
+            navigate("/profile");
+        }
+        else {
+            alert(res);
+        }
     }
 
     const updateImage = async (e) => {
@@ -40,7 +48,12 @@ export default function UpdateProfileForm () {
             const formData = new FormData();
             formData.append('avtar', avtar);
             let res = await updateProfileImage(formData);
-            console.log(res);
+            if (res === "profile updated successfully") {
+                navigate("/profile");
+            }
+            else {
+                alert(res);
+            }
         }
     }
 

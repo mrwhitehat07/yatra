@@ -1,3 +1,9 @@
 .navbar {
     position: sticky;
 }
+
+@media screen and (max-width: 480px) {
+    .navtext {
+        display: none;
+    }
+}

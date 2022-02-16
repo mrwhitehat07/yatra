@@ -6,6 +6,7 @@ class Apis {
     static profileImageUrl = '/profile/image';
     static forgotUrl = '/forgot-password';
     static resetUrl = '/reset-password/';
+    static locationUrl = '/locations';
     static propularLocations = '/locations/popular';
     static singleLocation = '/locations/';
     static tripsUrl = '/trip';

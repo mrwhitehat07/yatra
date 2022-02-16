@@ -1,0 +1,10 @@
+
+@media screen and (max-width: 480px) {
+    .img-thumbnail {
+        border-radius: 99px;
+    }
+
+    .logimg {
+        height: 200px;
+    }
+}

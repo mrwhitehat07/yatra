@@ -34,8 +34,8 @@ export const profile = async () => {
             return res.data;
         }
     }
-    else if  (res.status === 404){
-        return "No profile";
+    else {
+        return res.response.data;
     }
 }
 
@@ -46,11 +46,9 @@ export const profileDetail = async () => {
             return "Token expired";
         }   
         else {
+            console.log(res.data)
             return res.data;
         }
-    }
-    else if  (res.status === 404){
-        return "No profile";
     }
 }
 

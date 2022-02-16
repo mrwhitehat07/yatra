@@ -31,23 +31,21 @@ export default function Logs () {
                     onClick={() => navigate('/log-form')}
                 >
                     <i class="bi bi-plus" style={{ fontSize: 20 }}></i>
-                    Add Trips
+                    Add logs
                 </button>
             </div>
-            <div className="d-flex flex-row justify-content-between">  
+            <div className="log-container">  
                 {
                     (logs.length !== 0 ) ? logs.map((e) => (
                         <Link 
                             key={e.slug}
-                            className="card text-decoration-none" style={{ width: "16rem" }} to={`/logs/${e.slug}`}
+                            className="mycard card text-decoration-none" style={{ width: "16rem" }} to={`/logs/${e.slug}`}
                         >
-                            <div className="card-header">
-                                <img className="img-thumbnail" src={e.image} alt={e.slug} />
+                            <div className="img-conatainer">
+                                <img className="img-fluid" src={e.image} alt={e.slug} />
                             </div>
-                            <div className="card-body">
-                                <p className="card-text">{e.title}</p>
-                                <p className="card-text">{dateFormat(e.updatedAt, "dS mmmm, yyyy")}</p>
-                            </div>
+                            <p id="log-title" className="text-dark">{e.title}</p>
+                            <p id="log-date" className="text-dark">{dateFormat(e.updatedAt, "dS mmmm, yyyy")}</p>
                         </Link>  
                     )) 
                     : <p>You don't have any logs story</p>

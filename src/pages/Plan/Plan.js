@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getUserTrips } from "../../data/trips";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Plan.css";
 
 export default function Plan () {
@@ -34,17 +34,32 @@ export default function Plan () {
                 {
                     (plans.length !== 0) ?
                     plans.map((e) => (
-                        <Link 
-                            key={e.slug}
-                            className="card text-decoration-none rounded-5" 
-                            style={{ width: "17rem" }} to={`/location/${e.slug}`}
+                        <div 
+                            className="card"
+                            key={e._id}
                         >
-                            <img className="child " src={e.image} alt={e.slug} />
-                            <span className="card-text text-white">{e.city}, {e.country}</span>
-                        </Link>  
+                            <div class="card-body">
+                                <h5 className="card-title">{e.title}</h5>
+                                <p className="card-text">{e.description}</p>
+                                <div className="d-flex flex-row justify-content-between">
+                                    <div className="float-left">
+                                        <a href="/" className="btn btn-light rounded">
+                                            <i className="bi bi-eye-fill" style={{ fontSize: "22px" }}></i>
+                                        </a>
+                                    </div>
+                                    <div className="d-flex flex-row float-right">
+                                        <a href="/" className="btn btn-light rounded mx-2">
+                                            <i className="bi bi-pencil-fill" style={{ fontSize: "22px", color: "#add8e6" }}></i>
+                                        </a>
+                                        <a href="/" className="btn btn-light rounded">
+                                            <i className="bi bi-trash-fill" style={{ fontSize: "22px", color: "#b22222" }}></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> 
                     )) :  
-                    <p>You don't have any trip plans.</p>
-                    
+                    <p>You don't have any trip plans.</p>  
                 }   
             </div>
         </div>
