@@ -40,8 +40,8 @@ export default function Plan () {
                         >
                             <div class="card-body">
                                 <h5 className="card-title">{e.title}</h5>
-                                <p className="card-text text-wrap" style={{ width: 150+"px" }}>{e.description}</p>
-                                <div className="d-flex flex-row justify-content-between">
+                                <p className="card-text text-wrap " style={{ width: 250+"px", height: 50+"px" }}>{e.description}</p>
+                                <div className="d-flex flex-row justify-content-between bg-light">
                                     <div className="float-left">
                                         <Link to={"/trips/"+e._id} className="btn btn-light rounded">
                                             <i className="bi bi-eye-fill" style={{ fontSize: "22px" }}></i>

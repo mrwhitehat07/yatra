@@ -15,7 +15,11 @@
     justify-content: space-between;
 }
 
-.log-img-container {
+.log-container > .mycard {
+    height: 250px;
+}
+
+.log-container > img-conatainer {
     width: inherit;
     height: 200px;
 }

@@ -11,14 +11,15 @@ export default function Navbar({ user }) {
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-target="navbarTogglerDemo01" 
-        aria-controls="navbarTogglerDemo01" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="#navbarSupportedContent" 
         aria-expanded="false" 
         aria-label="Toggle navigation"
       >
         <i className="bi bi-list"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <a class="navbar-brand mt-2 mt-lg-0" href="/">
           <img
             src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"

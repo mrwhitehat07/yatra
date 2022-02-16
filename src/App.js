@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     async function getUser() {
       let prof = await profile();
-      console.log(prof);
       setUser(prof);
     }
     getUser();

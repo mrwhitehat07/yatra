@@ -61,12 +61,12 @@ export default function Profile () {
                                                 (isVerified === true) ?
                                                 (<i className="bi bi-check-circle-fill" style={{ color: "#48d1cc" }}></i>)
                                                 :
-                                                <div></div>
+                                                <button className="btn btn-primary py-1">verify</button>
                                             }
                                         </div>
                                         <p className="mx-2">{ userProfile.address }</p>
                                     </div>
-                                    <div className="mt-2">
+                                    <div className="mt-2 float-end">
                                         <button 
                                             type="button" 
                                             class="btn btn-outline-danger float-end" 
@@ -111,7 +111,7 @@ export default function Profile () {
                                         {
                                             images.map((image) => (
                                                 <div class="col mb-2">
-                                                    <img src={image} alt="logimages" class="logimg w-100 rounded-3" />
+                                                    <img src={image} alt="logimages" class="logimg w-50 rounded-3" />
                                                 </div>
                                             ))
                                         }

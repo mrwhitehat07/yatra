@@ -1,3 +1,6 @@
+.logimg {
+    height: 250px;
+}
 
 @media screen and (max-width: 480px) {
     .img-thumbnail {
@@ -5,6 +8,6 @@
     }
 
     .logimg {
-        height: 200px;
+        height: 250px;
     }
 }

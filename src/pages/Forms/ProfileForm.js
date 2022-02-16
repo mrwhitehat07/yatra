@@ -32,7 +32,6 @@ export default function ProfileForm () {
             <form>
                 <h2 className="my-3">Create Profile</h2>
                 <div className="mb3 align-center">
-                
                     <label for="image" className="form-label">Avatar</label>
                     <input 
                         className="form-control mb-3"
