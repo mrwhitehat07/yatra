@@ -38,7 +38,7 @@ export default function Navbar({ user }) {
             <Link class="nav-link" to="/trips">Plans</Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" to="/">Requests</Link>
+            <Link class="nav-link" to="/requests">Requests</Link>
           </li>
         </ul>
       </div>

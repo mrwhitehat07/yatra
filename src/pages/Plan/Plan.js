@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getUserTrips } from "../../data/trips";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Plan.css";
 
 export default function Plan () {
@@ -40,12 +40,12 @@ export default function Plan () {
                         >
                             <div class="card-body">
                                 <h5 className="card-title">{e.title}</h5>
-                                <p className="card-text">{e.description}</p>
+                                <p className="card-text text-wrap" style={{ width: 150+"px" }}>{e.description}</p>
                                 <div className="d-flex flex-row justify-content-between">
                                     <div className="float-left">
-                                        <a href="/" className="btn btn-light rounded">
+                                        <Link to={"/trips/"+e._id} className="btn btn-light rounded">
                                             <i className="bi bi-eye-fill" style={{ fontSize: "22px" }}></i>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="d-flex flex-row float-right">
                                         <a href="/" className="btn btn-light rounded mx-2">

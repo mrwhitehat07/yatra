@@ -14,6 +14,7 @@ class Apis {
     static popularLogsUrl = '/logs/popular';
     static mylogsUrl = '/logs/me';
     static singleLog = '/logs/';
+    static requestsUrl = '/requests';
 }
 
 export default Apis;

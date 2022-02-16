@@ -9,6 +9,25 @@ export const getUserTrips = async () => {
     }
 }
 
+export const getTripsBySlug = async (slug) => {
+    const res = await axiosInstance.get(Apis.tripsUrl + "/" + slug + "/detail");
+    if(res.status === 200){
+        let result = res.data;
+        return result;
+    }
+    return res;
+}
+
+export const inviteToTrip = async (email, id) => {
+    const res = await axiosInstance.post(Apis.tripsUrl + "/" + id + "/requests", {email})
+    if(res.status === 201){
+        return res.message;
+    }
+    else {
+        return res;
+    }
+}   
+
 export const createUserTrips = async (data) => {
     const res = await axiosInstance.post(Apis.tripsUrl, data);
     if(res.status === 200){
