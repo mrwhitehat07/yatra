@@ -29,7 +29,7 @@ export default function UpdateProfileForm () {
             address
         }
         let res = await updateProfile(data);
-        if (res === "profile updated successfully") {
+        if (res === "updated") {
             window.location.reload(true);
             navigate("/profile");
         }

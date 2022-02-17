@@ -77,12 +77,12 @@ export default function PlanDetail () {
                                 <div className="d-flex flex-row">
                                     <img
                                         src={member.avtar}
-                                        className="rounded-circle mt-2"
-                                        height="80"
+                                        className="rounded-circle mt-2 mx-2"
+                                        height="30"
                                         alt={member.fullname}
                                         loading="lazy"
                                     />
-                                    <h4 className="card-text mt-2">{member.fullname}</h4>
+                                    <p className="card-text mt-2 align-center">{member.fullname}</p>
                                 </div>
                             ))
                         }
