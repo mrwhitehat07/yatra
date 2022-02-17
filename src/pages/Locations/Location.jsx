@@ -33,7 +33,7 @@ const Location = () => {
                 zoom: 9
             });
         new mapboxgl.Marker().setLngLat([location.lng, location.lat]).addTo(map.current);
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [slug]);
 
     return (

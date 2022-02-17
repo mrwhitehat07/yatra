@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { createLogs } from "../../data/logs";
+import { useNavigate, useParams } from "react-router-dom";
 import { getAllLocations } from "../../data/locations";
+import { getLogsBySlug, updateLogImage, updateLogs } from "../../data/logs";
 import "./Form.css";
 
 export default function UpdateTripForm () {
@@ -13,48 +13,87 @@ export default function UpdateTripForm () {
         country: '',
         image: ''
     }]);
+    const [logs, setLogs] = useState({});
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
     const [date, setDate] = useState(Date.now());
     const [description, setDescription] = useState("");
     const [image, setImage] = useState(null);
     const navigate = useNavigate();
+    const { slug } = useParams();
 
     useEffect(() => {
         async function getDatas(){
+            const logs = await getLogsBySlug(slug);
             const locs = await getAllLocations();
             setLocations(locs);
+            setLogs(logs.logs);
         }
         getDatas();
-    }, [])
+    }, [slug])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        var formData = new FormData();
-        formData.append('title', title);
-        formData.append('location', location);
-        formData.append('description', description);
-        formData.append('image', image);
-        formData.append('visitDate', date);
+        const data = {
+            location, 
+            title,
+            description,
+            date
+        }
+        let res = await updateLogs(slug, data);
+        if (res === "updated") {
+            // window.location.reload(true);
+            navigate("/logs");
+        }
+        else {
+            alert(res);
+        }
+    }
 
-        const res = await createLogs(formData);
-        if (res === "logs created successfully"){
-            alert("logs created successfully");
+    const updateImage = async (e) => {
+        e.preventDefault();
+        if (image === null) {
+            alert("No image selected");
+        }
+        else {
+            const formData = new FormData();
+            formData.append('image', image);
+            let res = await updateLogImage(slug, formData);
+            alert(res);
             navigate("/logs");
         }
     }
 
+
     return (
         <div className="container d-flex flex-row justify-content-center align-center">
             <form className="form-group">
-                <h1 className="my-3">Add Your Logs</h1>
+                <h1 className="my-3">Update Your Logs</h1>
+                <div>
+                    <img src={logs.image} alt={logs.slug} className="w-50" />
+                </div>
+                <div className="mb-3">
+                    <label for="image" className="form-label">Image</label>
+                    <div className="d-flex flex-row justify-space-between align-items-center">
+                        <input 
+                            className="form-control mb-3 mx-3"
+                            type="file"  
+                            onChange={e => setImage(e.target.files[0])}
+                        />
+                        <button 
+                            type="submit" 
+                            className="btn btn-primary"
+                            onClick={updateImage}
+                        >Update</button>
+                    </div>
+                </div>
                 <div className="mb-3">
                     <label for="title" className="form-label">Title</label>
                     <input 
                         type="text"
                         className="form-control" 
                         id="title" 
-                        placeholder="First visit to Nepal"
+                        placeholder={logs.title}
                         value={title}
                         onChange={e => setTitle(e.target.value)}
                     />
@@ -64,7 +103,7 @@ export default function UpdateTripForm () {
                     <textarea 
                         className="form-control" 
                         id="description" rows="3" 
-                        placeholder="First ....."
+                        placeholder={logs.description}
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     ></textarea>
@@ -97,14 +136,6 @@ export default function UpdateTripForm () {
                             ))
                         }
                     </select>
-                </div>
-                <div className="mb-3">
-                    <label for="image" className="form-label">Image</label>
-                    <input 
-                        className="form-control mb-3"
-                        type="file"  
-                        onChange={e => setImage(e.target.files[0])}
-                    />
                 </div>
                 <button
                     type="button"

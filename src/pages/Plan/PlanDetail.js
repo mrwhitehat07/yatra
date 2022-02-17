@@ -9,7 +9,7 @@ export default function PlanDetail () {
     const [plan, setPlan] = useState({
         host: {},
         trip: {},
-        // members: []
+        members: []
     });
     const [email, setEmail] = useState("");
     const { slug } = useParams();
@@ -17,7 +17,7 @@ export default function PlanDetail () {
     useEffect(() => {   
         async function getPlan(){
             const locs = await getTripsBySlug(slug);
-            setPlan(locs.trip);
+            setPlan(locs);
         }
         getPlan();
     },[slug]);
@@ -34,11 +34,11 @@ export default function PlanDetail () {
             <div className="d-flex flex-row justify-space-evenly">  
                 <div className="content-container p-3">  
                     <div className="detail-header">
-                        <h1 className="card-text">{plan.title}</h1>
-                        <p className="text-dark">{dateFormat(plan.updatedAt, "mmmm d, yyyy")}</p>
+                        <h1 className="card-text">{plan.trip.title}</h1>
+                        <p className="text-dark">{dateFormat(plan.trip.updatedAt, "mmmm d, yyyy")}</p>
                     </div>
-                    <p className="card-text mt-2">Visit Date: {dateFormat(plan.visitDate, "mmmm d, yyyy")}</p>
-                    <p className="card-text mt-2">{plan.description}</p>
+                    <p className="card-text mt-2">Visit Date: {dateFormat(plan.trip.visitDate, "mmmm d, yyyy")}</p>
+                    <p className="card-text mt-2">{plan.trip.description}</p>
                 </div>
                 <div className="user-container p-4">
                     <div className="mb-3">
@@ -60,9 +60,10 @@ export default function PlanDetail () {
                             </button>
                         </div>
                     </div>
+                    <h4 className="card-text mt-3">Hosted By</h4>
                     <img
                         src={plan.host.avtar}
-                        className="rounded-circle mt-5"
+                        className="rounded-circle mt-2"
                         height="80"
                         alt={plan.host.fullname}
                         loading="lazy"
@@ -70,7 +71,21 @@ export default function PlanDetail () {
                     <h4 className="card-text mt-2">{plan.host.fullname}</h4>
                     <hr />
                     <div>
-                        <h6>Members</h6>
+                        <h6 className="mb-3">Members</h6>
+                        {
+                            plan.members.map((member) => (
+                                <div className="d-flex flex-row">
+                                    <img
+                                        src={member.avtar}
+                                        className="rounded-circle mt-2"
+                                        height="80"
+                                        alt={member.fullname}
+                                        loading="lazy"
+                                    />
+                                    <h4 className="card-text mt-2">{member.fullname}</h4>
+                                </div>
+                            ))
+                        }
                     </div>
                     <hr />
 

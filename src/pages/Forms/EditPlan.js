@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { createUserTrips, getTripsBySlug, updateTrips } from "../../data/trips";
+import { getTripsBySlug, updateTrips } from "../../data/trips";
 import { getAllLocations } from "../../data/locations";
 import "./Form.css";
 import dateFormat from "dateformat";
@@ -30,7 +30,7 @@ export default function EditPlanForm () {
             setPlans(trip.trip);
         }
         getDatas();
-    }, [])
+    }, [slug])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

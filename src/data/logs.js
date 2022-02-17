@@ -43,3 +43,24 @@ export const createLogs = async (formData) => {
         return "Something went wrong";
     }
 }
+
+export const updateLogs = async (slug, data) => {
+    const res = await axiosInstance.put(Apis.logsUrl + `/${slug}`, data);
+    return res.data.message;
+}
+
+export const updateLogImage = async (slug, data) => {
+    const res = await axiosInstance.put(Apis.logsUrl + `/${slug}/image`, data, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+    return res.data.message;
+}
+
+export const deleteLogs = async (slug) => {
+    const res = await axiosInstance.delete(Apis.logsUrl + `/${slug}`);
+    if (res.status === 204){
+        return res.data.message || "deleted";
+    }
+}

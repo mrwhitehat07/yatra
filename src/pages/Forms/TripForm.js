@@ -38,8 +38,8 @@ export default function TripForm () {
         formData.append('visitDate', date);
 
         const res = await createLogs(formData);
-        if (res === "logs created successfully"){
-            alert("logs created successfully");
+        if (res === "created"){
+            alert(res);
             navigate("/logs");
         }
     }
