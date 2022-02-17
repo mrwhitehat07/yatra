@@ -46,7 +46,6 @@ export const profileDetail = async () => {
             return "Token expired";
         }   
         else {
-            console.log(res.data)
             return res.data;
         }
     }

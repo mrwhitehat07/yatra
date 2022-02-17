@@ -20,7 +20,7 @@ export default function PlanDetail () {
             setPlan(locs.trip);
         }
         getPlan();
-    },[]);
+    },[slug]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

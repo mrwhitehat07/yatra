@@ -9,7 +9,15 @@ export const getUserRequests = async () => {
     }
 }
 
-export const createUserTrips = async (data) => {
+export const acceptRequest = async (data) => {
+    const res = await axiosInstance.post(Apis.tripsUrl, data);
+    if(res.status === 200){
+        let result = res.data.message;
+        return result;
+    }
+}
+
+export const declineRequest = async (data) => {
     const res = await axiosInstance.post(Apis.tripsUrl, data);
     if(res.status === 200){
         let result = res.data.message;

@@ -34,7 +34,7 @@ const Location = () => {
             });
         new mapboxgl.Marker().setLngLat([location.lng, location.lat]).addTo(map.current);
 
-    }, []);
+    }, [slug]);
 
     return (
         <div className="container pt-2">

@@ -18,7 +18,6 @@ export default function UpdateProfileForm () {
             setUserProfile(userProfile);
         }
         getUser();
-        console.log(userProfile);
     }, [])
     
 
@@ -40,7 +39,6 @@ export default function UpdateProfileForm () {
     }
 
     const updateImage = async (e) => {
-        e.preventDefault(); 
         if (avtar === null) {
             alert("No image selected");
         }
@@ -49,10 +47,7 @@ export default function UpdateProfileForm () {
             formData.append('avtar', avtar);
             let res = await updateProfileImage(formData);
             if (res === "profile updated successfully") {
-                navigate("/profile");
-            }
-            else {
-                alert(res);
+                return res;
             }
         }
     }
@@ -62,7 +57,7 @@ export default function UpdateProfileForm () {
             <form>
                 <h2 className="my-3">Update Profile</h2>
                 <div className="mb-3 align-center">
-                    <img src={userProfile.avtar} className="img-circle mx-auto" />
+                    <img src={userProfile.avtar} alt={userProfile.fullname + "covimg"} className="img-circle mx-auto" />
                 </div>
                 <div className="mb-3">
                     <label for="image" className="form-label">Avatar</label>

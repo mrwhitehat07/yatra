@@ -88,7 +88,7 @@ span {
         flex-direction: column;
     }
 
-    .home-content > .card {
+    .home-content > .child {
         width: 100%;
         margin-bottom: 10px;
     }

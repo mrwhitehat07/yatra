@@ -21,7 +21,7 @@ export default function LogDetail () {
             setLogs(locs);
         }
         getLogs();
-    },[]);
+    },[slug]);
 
     return (
         <div className="container">

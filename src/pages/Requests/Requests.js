@@ -17,6 +17,7 @@ export default function Requests() {
     
     const accept = (e) => {
         e.preventDefault();
+        console.log(e.target)
     }
 
     const decline = (e) => {
@@ -31,7 +32,7 @@ export default function Requests() {
                 requests.map((request) => (
                     <div class="card" key={request._id}>
                         <div class="card-body w-80">
-                            {request.sender} asked you to join on his trip {request._id}. Want to join this trip?
+                            {request.sender} asked you to join on his trip {request.trip}. Want to join this trip?
                         </div>
                         <div>
                             <div className="d-flex flex-row float-end mr-2 mb-3">
