@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getUserRequests } from "../../data/requests";
+import { acceptRequest, declineRequest, getUserRequests } from "../../data/requests";
 import "./Request.css";
 
 export default function Requests() {
@@ -15,13 +15,22 @@ export default function Requests() {
         getRequests();
     }, [])
     
-    const accept = (e) => {
-        e.preventDefault();
-        console.log(e.target)
+    const accept = async (slug, id) => {
+        const trip = {
+            trip: slug
+        }
+        const res = await acceptRequest(trip, id);
+        alert(res);
+        window.location.reload(true);
     }
 
-    const decline = (e) => {
-        e.preventDefault();
+    const decline = async (slug, id) => {
+        const trip = {
+            trip: slug
+        }
+        const res = await declineRequest(trip, id);
+        alert(res);
+        window.location.reload(true);
     }
 
     return (
@@ -39,17 +48,15 @@ export default function Requests() {
                                 <button 
                                     type="button" 
                                     className="btn d-flex flex-row"
-                                    value={request.trip}
-                                    onClick={accept}
+                                    onClick={() => accept(request.trip, request._id)}
                                 >
                                     <i className="bi bi-check" style={{ fontSize: "30px", color: "green" }}></i>
-                                    <p className="m-auto" value={request.trip}>Accept</p>
+                                    <p className="m-auto">Accept</p>
                                 </button>
                                 <button 
                                     type="button" 
                                     className="btn d-flex flex-row"
-                                    value={request.trip}
-                                    onClick={decline}
+                                    onClick={() => decline(request.trip, request._id)}
                                 >
                                     <i className="bi bi-x" style={{ fontSize: "30px", color: "red" }}></i>
                                     <p className="m-auto" value={request.trip}>Decline</p>

@@ -1,3 +1,9 @@
+.mycontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .add-container{
     width: 200;
     height: 150;
@@ -16,12 +22,13 @@
 }
 
 .log-container > .mycard {
-    height: 250px;
+    height: 380px;
 }
 
-.log-container > img-conatainer {
-    width: inherit;
-    height: 200px;
+.img-conatainer > .img-fluid {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 .header {
@@ -45,6 +52,7 @@
     font-size: 18px;
     margin-left: 10px;
     margin-top: 4px;
+    margin-bottom: 0;
 }
 
 #log-date {
@@ -53,9 +61,14 @@
     font-size: 14px;
     margin-left: 10px;
     color: grey;
+    margin-top: 0;
 }
 
 @media screen and (max-width: 480px) {
+
+    .mycontainer {
+        flex-direction: column;
+    }
 
     .log-container {
         flex-direction: column;
@@ -77,4 +90,6 @@
         height: 100%;
         object-fit: cover;
     }
+
+
 }

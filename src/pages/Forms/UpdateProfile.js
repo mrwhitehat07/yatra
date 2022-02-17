@@ -38,7 +38,7 @@ export default function UpdateProfileForm () {
         }
     }
 
-    const updateImage = async (e) => {
+    const updateImage = async () => {
         if (avtar === null) {
             alert("No image selected");
         }
@@ -46,9 +46,8 @@ export default function UpdateProfileForm () {
             const formData = new FormData();
             formData.append('avtar', avtar);
             let res = await updateProfileImage(formData);
-            if (res === "profile updated successfully") {
-                return res;
-            }
+            alert(res);
+            navigate("/profile");
         }
     }
 

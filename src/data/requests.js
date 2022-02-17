@@ -9,18 +9,12 @@ export const getUserRequests = async () => {
     }
 }
 
-export const acceptRequest = async (data) => {
-    const res = await axiosInstance.post(Apis.tripsUrl, data);
-    if(res.status === 200){
-        let result = res.data.message;
-        return result;
-    }
+export const acceptRequest = async (trip, id) => {
+    const res = await axiosInstance.put(`requests/${id}/accept`, trip);
+    return res.data.message;
 }
 
-export const declineRequest = async (data) => {
-    const res = await axiosInstance.post(Apis.tripsUrl, data);
-    if(res.status === 200){
-        let result = res.data.message;
-        return result;
-    }
+export const declineRequest = async (trip, id) => {
+    const res = await axiosInstance.put(`requests/${id}/decline` , trip );
+    return res.data.message;
 }

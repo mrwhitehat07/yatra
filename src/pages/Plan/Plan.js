@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getUserTrips } from "../../data/trips";
+import { getUserTrips, deleteTrips } from "../../data/trips";
 import { Link, useNavigate } from "react-router-dom";
 import "./Plan.css";
 
@@ -16,6 +16,11 @@ export default function Plan () {
         getTripPlans()
     }, [])
     
+    const deleteTrip = async (id) => {
+        const res = await deleteTrips(id);
+        alert(res);
+        window.location.reload(true);
+    }
 
     return (
         <div className="container">
@@ -48,12 +53,15 @@ export default function Plan () {
                                         </Link>
                                     </div>
                                     <div className="d-flex flex-row float-right">
-                                        <a href="/" className="btn btn-light rounded mx-2">
+                                        <Link to={"/trips/edit/"+e._id} className="btn btn-light rounded mx-2">
                                             <i className="bi bi-pencil-fill" style={{ fontSize: "22px", color: "#add8e6" }}></i>
-                                        </a>
-                                        <a href="/" className="btn btn-light rounded">
+                                        </Link>
+                                        <button 
+                                            className="btn btn-light rounded"
+                                            onClick={() => deleteTrip(e._id)}
+                                        >
                                             <i className="bi bi-trash-fill" style={{ fontSize: "22px", color: "#b22222" }}></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div> 

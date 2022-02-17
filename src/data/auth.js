@@ -86,7 +86,7 @@ export const updateProfileImage = async (image) => {
             return "Token expired";
         }   
         else {
-            return res.data;
+            return res.data.message;
         }
     }
 }

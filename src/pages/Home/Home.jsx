@@ -33,8 +33,8 @@ export default function Home () {
 
     return (
         <div className="container">
-            <h3 className="mb-2">Popular Locations</h3>
-            <div className="home-content">  
+            <h3 className="mb-3">Popular Locations</h3>
+            <div className="home-content mb-4">  
                 {
                     locations.map((e) => (
                         <Link 
@@ -48,7 +48,7 @@ export default function Home () {
                     ))
                 }   
             </div>
-            <h3 className="mb-2">Blogs From People</h3>
+            <h3 className="mb-3">Blogs From People</h3>
             <div className="home-content d-flex flex-row justify-content-between">  
                 {
                     logs.map((e) => (
@@ -57,7 +57,7 @@ export default function Home () {
                             className="card text-decoration-none" 
                             style={{ width: "16rem" }} to={`/logs/${e.slug}`}
                         >
-                            <div className="card-header">
+                            <div className="img-conatainer">
                                 <img className="card-img" src={e.image} alt={e.slug} />
                             </div>
                             <div className="card-body">

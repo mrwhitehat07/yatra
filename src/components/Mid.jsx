@@ -16,6 +16,8 @@ import PlanForm from "../pages/Forms/PlanForm";
 import Plan from "../pages/Plan/Plan";
 import Requests from "../pages/Requests/Requests";
 import PlanDetail from "../pages/Plan/PlanDetail";
+import EditPlanForm from "../pages/Forms/EditPlan";
+import UpdateTripForm from "../pages/Forms/LogUpdateForm";
 
 export default function Mid () {
     return (
@@ -44,8 +46,10 @@ export default function Mid () {
                 <Route path="/logs/:slug" element={ <LogDetail /> } />
                 <Route path="/trips" element={ <ProtectedRoute><Plan /></ProtectedRoute>} />
                 <Route path="/trips/:slug" element={ <ProtectedRoute><PlanDetail /></ProtectedRoute>} />
+                <Route path="/trips/edit/:slug" element={ <ProtectedRoute><EditPlanForm /></ProtectedRoute>} />
                 <Route path="/requests" element={ <ProtectedRoute><Requests /></ProtectedRoute>} />
                 <Route path="/log-form" element={ <ProtectedRoute><TripForm /></ProtectedRoute> } />
+                <Route path="/log-update-form/:slug" element={ <ProtectedRoute><UpdateTripForm /></ProtectedRoute> } />
                 <Route path="/trip-form" element={ <ProtectedRoute><PlanForm /></ProtectedRoute> } />
             </Routes>
         </>

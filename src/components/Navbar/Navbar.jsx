@@ -21,12 +21,7 @@ export default function Navbar({ user }) {
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <a class="navbar-brand mt-2 mt-lg-0" href="/">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-            height="15"
-            alt="MDB Logo"
-            loading="lazy"
-          />
+          Travel Logs
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">

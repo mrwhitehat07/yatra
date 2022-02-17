@@ -25,8 +25,8 @@ export default function PlanDetail () {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = await inviteToTrip(email, slug);
-        console.log(res);
-        alert(res)
+        alert(res);
+        setEmail("");
     }
 
     return (

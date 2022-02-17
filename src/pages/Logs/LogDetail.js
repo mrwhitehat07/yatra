@@ -25,7 +25,7 @@ export default function LogDetail () {
 
     return (
         <div className="container">
-            <div className="d-flex flex-row justify-space-evenly">  
+            <div className="mycontainer">  
                 <div className="content-container p-3">  
                     <img className="log-img-container" src={logs.logs.image} alt={logs.slug} />
                     <div className="detail-header">
@@ -36,6 +36,7 @@ export default function LogDetail () {
                     <p className="card-text mt-2">{logs.logs.description}</p>
                 </div>
                 <div className="user-container p-4">
+                    <h4 className="card-text mt-2">Posted By</h4>
                     <img
                         src={logs.user.avtar}
                         className="rounded-circle mt-5"
@@ -45,8 +46,6 @@ export default function LogDetail () {
                     />
                     <h4 className="card-text mt-2">{logs.user.fullname}</h4>
                     { (logs.user.user ===  userContext.user._id) ? <p>Edit</p> : ""}
-                    <hr />
-                    <p className="text-dark">{logs.user.bio}</p>
                     <hr />
                     <div>
                         <h6>More from {logs.user.fullname}</h6>
