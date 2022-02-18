@@ -40,7 +40,7 @@ export default function Profile () {
                 <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col col-lg-9 col-xl-7">
-                            <div class="card">
+                            <div class="">
                                 <div class="rounded-top text-white d-flex flex-row" style={{ backgroundColor: "#000", height: "200px" }}>
                                     <div class="img-container ms-4 mt-5 d-flex flex-column" style={{ width: 150+"px" }}>
                                         <img src={userProfile.avtar} alt={userProfile.fullname + "avatar"} class="pimg img-fluid img-thumbnail mx-auto mt-4 mb-2" style={{ width: "150px", zIndex: 1 }} />
@@ -61,12 +61,12 @@ export default function Profile () {
                                                 (isVerified === true) ?
                                                 (<i className="bi bi-check-circle-fill" style={{ color: "#48d1cc" }}></i>)
                                                 :
-                                                <button className="btn btn-primary py-1">verify</button>
+                                                <div></div>
                                             }
                                         </div>
                                         <p className="mx-2">{ userProfile.address }</p>
                                     </div>
-                                    <div className="mt-2 float-end">
+                                    <div className="mt-2">
                                         <button 
                                             type="button" 
                                             class="btn btn-outline-danger float-end" 
@@ -110,8 +110,8 @@ export default function Profile () {
                                     <div class="row g-2">
                                         {
                                             images.map((image) => (
-                                                <div class="col mb-2">
-                                                    <img src={image} alt="logimages" class="logimg w-50 rounded-3" />
+                                                <div class="col mb-2" key={image}>
+                                                    <img src={image} alt="logimages" class="logimg w-100 rounded-3" />
                                                 </div>
                                             ))
                                         }

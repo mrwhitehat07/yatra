@@ -46,7 +46,7 @@ export default function Logs () {
                         
                     <div 
                         key={e.slug}
-                        className="mycard card text-decoration-none" style={{ width: "16rem" }}
+                        className="mycard card text-decoration-none"
                     >
                         <div className="img-conatainer">
                             <img className="img-fluid" src={e.image} alt={e.slug} />

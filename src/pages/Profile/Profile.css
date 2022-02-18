@@ -1,13 +1,28 @@
-.logimg {
+/* .logimg {
     height: 250px;
+}
+
+.myblack {
+    background-color: black;
+    height: 200px;
 }
 
 @media screen and (max-width: 480px) {
     .img-thumbnail {
         border-radius: 99px;
-    }
+    } */
 
-    .logimg {
+    /* .logimg {
+        height: 250px;
+    } */
+
+    /* .card > .myblack {
         height: 250px;
     }
-}
+
+    .img-container > .btn {
+        color: #fff;
+        border-color: #fff;
+    } */
+
+/* } */

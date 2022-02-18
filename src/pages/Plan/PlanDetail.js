@@ -31,7 +31,7 @@ export default function PlanDetail () {
 
     return (
         <div className="container">
-            <div className="d-flex flex-row justify-space-evenly">  
+            <div className="plan-container">  
                 <div className="content-container p-3">  
                     <div className="detail-header">
                         <h1 className="card-text">{plan.trip.title}</h1>

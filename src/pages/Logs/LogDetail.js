@@ -34,8 +34,9 @@ export default function LogDetail () {
                     </div>
                     <p className="card-text mt-2">Visit Date: {dateFormat(logs.logs.visitDate, "mmmm d, yyyy")}</p>
                     <p className="card-text mt-2">{logs.logs.description}</p>
+                    
                 </div>
-                <div className="user-container p-4">
+                <div className="my-user-container p-4">
                     <h4 className="card-text mt-2">Posted By</h4>
                     <img
                         src={logs.user.avtar}
@@ -46,10 +47,6 @@ export default function LogDetail () {
                     />
                     <h4 className="card-text mt-2">{logs.user.fullname}</h4>
                     { (logs.user.user ===  userContext.user._id) ? <p>Edit</p> : ""}
-                    <hr />
-                    <div>
-                        <h6>More from {logs.user.fullname}</h6>
-                    </div>
                 </div>
             </div>
         </div>

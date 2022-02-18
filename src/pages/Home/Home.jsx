@@ -39,8 +39,8 @@ export default function Home () {
                     locations.map((e) => (
                         <Link 
                             key={e.slug}
-                            className="card text-decoration-none rounded-5" 
-                            style={{ width: "17rem" }} to={`/location/${e.slug}`}
+                            className="mycard card text-decoration-none rounded-5" 
+                             to={`/location/${e.slug}`}
                         >
                             <img className="child card-img" src={e.image} alt={e.slug} />
                             <span className="card-text text-white">{e.city}, {e.country}</span>
@@ -49,13 +49,13 @@ export default function Home () {
                 }   
             </div>
             <h3 className="mb-3">Blogs From People</h3>
-            <div className="home-content d-flex flex-row justify-content-between">  
+            <div className="home-content">  
                 {
                     logs.map((e) => (
                         <Link 
                             key={e.slug}
-                            className="card text-decoration-none" 
-                            style={{ width: "16rem" }} to={`/logs/${e.slug}`}
+                            className="mycard card text-decoration-none" 
+                             to={`/logs/${e.slug}`}
                         >
                             <div className="img-conatainer">
                                 <img className="card-img" src={e.image} alt={e.slug} />

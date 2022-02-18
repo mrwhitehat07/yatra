@@ -3,3 +3,27 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.plan-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 23rem;
+    }
+
+    .plan-container {
+        flex-direction: column;
+    }
+
+    .plan-container > .content-container {
+        width: 100vw;
+    }
+
+    .plan-container > .user-container {
+        width: 100vw;
+    }
+}

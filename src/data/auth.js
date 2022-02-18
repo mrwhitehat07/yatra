@@ -7,8 +7,8 @@ export const login = async (user) => {
         localStorage.setItem("token", res.data.token)
         return res.data.message;
     }
-    else if (res.status === 404){
-        return "No user";
+    else {
+        return "Wrong credentials";
     }
    
 }
@@ -91,6 +91,13 @@ export const updateProfileImage = async (image) => {
     }
 }
 
+export const verify = async () => {
+    const res = await axiosInstance.post("/verify-email");
+    if (res.status === 200) {
+        return res.data.message;
+    }
+}
+
 export const forgot = async (email) => {
     const res = await axiosInstance.post(Apis.forgotUrl, email);
     if(res.status === 200){
@@ -101,8 +108,7 @@ export const forgot = async (email) => {
 
 export const resetPassword = async (data, token) => {
     const res = await axiosInstance.post(`${Apis.resetUrl}${token}`, data);
-    console.log(data);
-    return res;
+    return res.data.message;
 }
 
 export const logout = (e) => {

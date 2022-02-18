@@ -38,15 +38,16 @@ export default function UpdateProfileForm () {
         }
     }
 
-    const updateImage = async () => {
+    const updateImage = async (e) => {
+        e.preventDefault();
         if (avtar === null) {
             alert("No image selected");
         }
         else {
             const formData = new FormData();
             formData.append('avtar', avtar);
-            let res = await updateProfileImage(formData);
-            alert(res);
+            await updateProfileImage(formData);
+            alert("profile updated, will take time to make changes");
             navigate("/profile");
         }
     }
@@ -61,7 +62,8 @@ export default function UpdateProfileForm () {
                 <div className="mb-3">
                     <label for="image" className="form-label">Avatar</label>
                     <div className="d-flex flex-row justify-space-between align-items-center">
-                        <input 
+                        <input
+                            id="img-input" 
                             className="form-control mb-3 mx-3"
                             type="file"  
                             onChange={e => setAvtar(e.target.files[0])}

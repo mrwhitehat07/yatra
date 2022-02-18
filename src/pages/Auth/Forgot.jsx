@@ -10,8 +10,8 @@ export default function Forgot () {
         const data = {
             email
         } 
-        const res = await forgot(data);
-        alert(res.data)
+        await forgot(data);
+        alert("Email sent for verification")
     }
 
     return (

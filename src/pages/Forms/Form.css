@@ -1,8 +1,3 @@
-.form-map-container {
-    width: 40vw;
-    height: 200px;
-    border-radius: 10px;
-}
 
 .img-preview {
     width: 200px;
@@ -20,4 +15,10 @@
     width: 150px;
     height: 150px;
     border-radius: 99px;
+}
+
+@media screen and (max-width: 480px) {
+    .img-input {
+        margin: 0;
+    }
 }

@@ -15,6 +15,8 @@ const Location = () => {
         lng: 85.3240,
         description: '',
     });
+    const [visited, setVisited] = useState(0);
+    const [plan, setPlan] = useState(0);
     const mapContainer = useRef(null);
     const map = useRef(null);
     const { slug } = useParams();
@@ -22,7 +24,9 @@ const Location = () => {
     useEffect(() => {
         async function getLocation() {
             const locs = await getLocationsBySlug(slug);
-            setLocation(locs);
+            setLocation(locs.location);
+            setVisited(locs.logsLength);
+            setPlan(locs.tripLength);
         }
         getLocation();
         if (map.current) return;
@@ -47,16 +51,12 @@ const Location = () => {
                     </div>
                     <div className="row info-container bg-light mt-2">
                         <div className="col info mr-5">
-                            <h3>14</h3>
+                            <h3>{visited}</h3>
                             <p>Visited</p>
                         </div>
                         <div className="col info mr-5">     
-                            <h3>114</h3>
+                            <h3>{plan}</h3>
                             <p>Planning</p>
-                        </div>
-                        <div className="col info">        
-                            <h3>10</h3>
-                            <p>Rated</p>
                         </div>
                     </div>
                     <div className="description-container mt-2">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../../data/auth";
 
 export default function Reset () {
@@ -7,6 +7,7 @@ export default function Reset () {
     const [password, setPassword] = useState("");
     const [cnfPassword, setCnfPassword] = useState("");
     const { token } = useParams();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,6 +17,7 @@ export default function Reset () {
         }
         const res = await resetPassword(data, token);
         alert(res);
+        navigate('/login');
     }
 
     return (
